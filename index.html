@@ -2971,11 +2971,12 @@
         document.getElementById('view-home').hidden = isCaseStudy;
         document.getElementById('view-case-study').hidden = !isCaseStudy1;
         document.getElementById('view-case-study-2').hidden = !isCaseStudy2;
+        document.getElementById('globalCta').hidden = isCaseStudy1;
       })();
     </script>
 
-    <!-- cta section - before footer -->
-    <section class="cta-section">
+    <!-- cta section - before footer (hidden on case study 1, which has its own end-of-page CTA) -->
+    <section class="cta-section" id="globalCta">
       <div class="cta-content">
         <h2>Let's talk!</h2>
         <button class="btn btn-primary btn-large" onclick="openContactModal()">
@@ -3089,6 +3090,7 @@
     const homeView = document.getElementById('view-home');
     const csView = document.getElementById('view-case-study');
     const csView2 = document.getElementById('view-case-study-2');
+    const globalCta = document.getElementById('globalCta');
     const sections = homeView.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link, .nav-drawer a[href^="#"]');
 
@@ -3124,6 +3126,7 @@
       homeView.hidden = isCaseStudy;
       csView.hidden = !isCaseStudy1;
       csView2.hidden = !isCaseStudy2;
+      globalCta.hidden = isCaseStudy1;
 
       if (isCaseStudy1) {
         document.title = CASE_STUDY_1_TITLE;
