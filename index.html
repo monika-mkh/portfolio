@@ -2958,6 +2958,17 @@
       </p>
     </section>
 
+    <!-- end of case study CTA -->
+    <section class="cs-section cs-end" aria-labelledby="cs2-end-heading">
+      <h2 id="cs2-end-heading" style="margin-left: auto; margin-right: auto;">Let's talk!</h2>
+      <p class="cs-body-text" style="margin-left: auto; margin-right: auto;">
+      </p>
+      <div class="cs-end-cta">
+        <button class="btn btn-primary btn-large" onclick="openContactModal()">Get in touch</button>
+        <a href="#" class="btn btn-secondary btn-large">Back to home</a>
+      </div>
+    </section>
+
     </div>
 
     <!-- decide the initial view synchronously, before the rest of the page renders,
@@ -2971,7 +2982,7 @@
         document.getElementById('view-home').hidden = isCaseStudy;
         document.getElementById('view-case-study').hidden = !isCaseStudy1;
         document.getElementById('view-case-study-2').hidden = !isCaseStudy2;
-        document.getElementById('globalCta').hidden = isCaseStudy1;
+        document.getElementById('globalCta').hidden = isCaseStudy;
       })();
     </script>
 
@@ -3126,7 +3137,7 @@
       homeView.hidden = isCaseStudy;
       csView.hidden = !isCaseStudy1;
       csView2.hidden = !isCaseStudy2;
-      globalCta.hidden = isCaseStudy1;
+      globalCta.hidden = isCaseStudy;
 
       if (isCaseStudy1) {
         document.title = CASE_STUDY_1_TITLE;
