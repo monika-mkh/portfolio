@@ -1587,42 +1587,18 @@
       color: var(--text);
     }
 
-    /* ══════════════════════════════════════════════════ */
-    /* PHASE 4: AUTOMATION (EMPHASIZED - Complex step) */
-    /* ══════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════ */
     .process-step:nth-child(4) {
       border-top: 4px solid var(--accent);
-      background: rgba(79, 70, 229, 0.06);
-      padding: 28px 22px;
-      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
-      transform: scale(1.05);
-    }
-
-    .process-step:nth-child(4):hover {
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 12px 32px rgba(79, 70, 229, 0.2);
+      background: rgba(79, 70, 229, 0.02);
     }
 
     .process-step:nth-child(4) .step-num {
-      color: white;
-      background: var(--accent);
-      font-size: 12px;
-      padding: 4px 6px;
-      border-radius: var(--radius-tag);
-      width: auto;
-      height: auto;
-      font-weight: 800;
+      color: var(--accent);
     }
 
     .process-step:nth-child(4) h3 {
       color: var(--text);
-      font-size: 17px;
-      font-weight: 700;
-    }
-
-    .process-step:nth-child(4) p {
-      font-weight: 500;
-      color: var(--text-muted);
     }
 
     /* ═════════════════════════════════════════ */
@@ -1655,6 +1631,10 @@
     }
 
     .process-step:nth-child(3):hover {
+      background: rgba(79, 70, 229, 0.05);
+    }
+
+    .process-step:nth-child(4):hover {
       background: rgba(79, 70, 229, 0.05);
     }
 
@@ -2083,11 +2063,6 @@
         margin-bottom: 8px;
       }
 
-      .process-step:nth-child(4) {
-        transform: scale(1.03);
-        padding: 20px 14px;
-      }
-
       .process-step h3 {
         font-size: 16px;
         margin-bottom: 8px;
@@ -2173,11 +2148,6 @@
       .step-num {
         font-size: 20px;
         margin-bottom: 6px;
-      }
-
-      .process-step:nth-child(4) {
-        transform: scale(1.02);
-        padding: 16px 12px;
       }
 
       .insight-block,
