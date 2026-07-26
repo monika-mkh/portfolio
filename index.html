@@ -336,6 +336,32 @@
       width: 100%;
     }
 
+    .form-submit:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* scoped under .modal so these beat the generic `.modal p` rule above */
+    .modal .form-status {
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 16px 0 0;
+      padding: 12px 16px;
+      border-radius: var(--radius-tag);
+    }
+
+    .modal .form-status-success {
+      color: var(--accent-dark);
+      background: rgba(var(--accent-rgb), 0.1);
+    }
+
+    .modal .form-status-error {
+      color: #b91c1c;
+      background: rgba(185, 28, 28, 0.08);
+    }
+
     /* sticky navigation */
     .navbar {
       position: fixed;
@@ -1266,7 +1292,7 @@
       font-size: clamp(36px, 5vw, 56px);
       line-height: 1.25;
       letter-spacing: -0.03em;
-      max-width: 950px;
+      max-width: 100%;
       margin: 0;
       margin-bottom: 24px;
       font-weight: 700;
@@ -1276,7 +1302,7 @@
       font-size: 18px;
       color: var(--text-muted);
       line-height: 1.6;
-      max-width: 700px;
+      max-width: 100%;
       margin: 0;
       margin-bottom: 32px;
       transition: color 0.3s ease;
@@ -1446,7 +1472,7 @@
       font-size: clamp(24px, 3vw, 36px);
       line-height: 1.25;
       margin-bottom: var(--space-2xl);
-      max-width: 700px;
+      max-width: 100%;
     }
 
     .cs-body-text {
@@ -2263,7 +2289,7 @@
         <a href="#case-study-1" class="project-card">
           <div class="project-image">
             <img
-              src="file:///Users/monikamikhazi/Documents/portfolio/home-page-card1.png"
+              src="images/home-page-card1.svg"
               alt="Technical sales enablement project"
               loading="lazy"
             />
@@ -2284,7 +2310,7 @@
         <a href="#case-study-2" class="project-card">
           <div class="project-image">
             <img
-              src="file:///Users/monikamikhazi/Documents/portfolio/case-study-2-radarchart.png"
+              src="images/case-study-2-radarchart.svg"
               alt="Developer portal maturity assessment radar chart"
               loading="lazy"
             />
@@ -2457,7 +2483,7 @@
         <!-- Phase 1: Affinity -->
         <div class="research-phase alternating-left">
           <div class="research-image">
-            <img src="file:///Users/monikamikhazi/Documents/portfolio/case-study-1-affinity.png" alt="Affinity mapping exercise from the design sprint" style="width: 100%; height: auto; display: block;" loading="lazy"/>
+            <img src="images/case-study-1-affinity.svg" alt="Affinity mapping exercise from the design sprint" style="width: 100%; height: auto; display: block;" loading="lazy"/>
           </div>
           <div class="research-text">
             <h3>Affinity Mapping</h3>
@@ -2478,7 +2504,7 @@
             </p>
           </div>
           <div class="research-image">
-            <img src="file:///Users/monikamikhazi/Documents/portfolio/case-study-1-userinsights.png" alt="User insights personas from interviews" style="width: 100%; height: auto; display: block;" loading="lazy"/>
+            <img src="images/case-study-1-userinsights.svg" alt="User insights personas from interviews" style="width: 100%; height: auto; display: block;" loading="lazy"/>
           </div>
         </div>
 
@@ -2488,7 +2514,7 @@
         <div class="research-phase alternating-left">
           <div class="research-image">
             <img
-              src="file:///Users/monikamikhazi/Documents/portfolio/case-study-1-howmightwe.png"
+              src="images/case-study-1-howmightwe.svg"
               alt="How-Might-We ideation with priority filtering"
               loading="lazy"
               style="width: 100%; height: auto; display: block;"
@@ -2519,7 +2545,7 @@
           </div>
           <div class="research-image">
             <img
-              src="file:///Users/monikamikhazi/Documents/portfolio/case-study-1-solutiondesign.png"
+              src="images/case-study-1-solutiondesign.svg"
               alt="Solution wireframes and information architecture"
               loading="lazy"
               style="width: 100%; height: auto; display: block;"
@@ -2619,7 +2645,7 @@
       The research informed the structure of case studies, the prompts used to create sales content, and guidance on translating technical features into real customer outcomes. Instead of talking about the technical part, we talked about what it actually solved for customers.
       </p>
 
-      <img src="file:///Users/monikamikhazi/Documents/portfolio/case-study-1-final.png" alt="Final solution design showing the AI-assisted workflow" style="width: 100%; max-width: 900px; margin: 48px auto; display: block; border-radius: var(--radius-card);">
+      <img src="images/case-study-1-final.svg" alt="Final solution design showing the AI-assisted workflow" style="width: 100%; max-width: 900px; margin: 48px auto; display: block; border-radius: var(--radius-card);">
     </section>
 
     <!-- impact -->
@@ -2856,7 +2882,7 @@
         <div>
           <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--text);">Executive level view</h3>
           <div style="display: flex; align-items: center; justify-content: center;">
-            <img src="file:///Users/monikamikhazi/Documents/portfolio/case-study-2-radarchart.png" alt="Executive maturity dashboard radar chart" style="width: 100%; border-radius: var(--radius-card);">
+            <img src="images/case-study-2-radarchart.svg" alt="Executive maturity dashboard radar chart" style="width: 100%; border-radius: var(--radius-card);">
           </div>
           <p class="cs-body-text" style="margin-top: 24px;">
             Different stakeholder needs influenced how results were presented.
@@ -2866,7 +2892,7 @@
         <div>
           <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--text);">Engineering level breakdown</h3>
           <div style="display: flex; align-items: center; justify-content: center;">
-            <img src="file:///Users/monikamikhazi/Documents/portfolio/case-study-2-barchart.png" alt="Framework criteria breakdown bar chart" style="width: 100%; border-radius: var(--radius-card);">
+            <img src="images/case-study-2-barchart.svg" alt="Framework criteria breakdown bar chart" style="width: 100%; border-radius: var(--radius-card);">
           </div>
           <p class="cs-body-text" style="margin-top: 24px;">
             Created assessment outputs tailored to product management and engineering to show a more granular view to results.
@@ -2975,7 +3001,7 @@
       <h2>Let's talk</h2>
       <p>Tell me about your challenge.</p>
 
-      <form onsubmit="handleFormSubmit(event)">
+      <form id="contactForm" onsubmit="handleFormSubmit(event)">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
@@ -2988,7 +3014,13 @@
           <label for="message">Your message</label>
           <textarea id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary form-submit btn-large">Send message</button>
+
+        <!-- spam honeypot: hidden from people, tempting to bots -->
+        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true"
+               style="display: none !important;">
+
+        <button type="submit" id="formSubmitBtn" class="btn btn-primary form-submit btn-large">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </div>
@@ -3157,17 +3189,98 @@
       document.body.style.overflow = 'auto';
     }
 
-    function handleFormSubmit(event) {
+    /* ─────────────────────────────────────────────────────────────
+       CONTACT FORM — delivered by Web3Forms (free, no backend needed)
+       so it works on static hosting like GitHub Pages.
+
+       SETUP (one time, ~2 minutes):
+       1. Go to https://web3forms.com
+       2. Enter the inbox that should receive messages
+          (currently: mikhazimonika@gmail.com) and confirm the email
+       3. Copy the Access Key you're given
+       4. Paste it below, replacing PASTE-YOUR-ACCESS-KEY-HERE
+       5. Commit and push — done
+
+       The access key is safe to publish; it only allows sending TO
+       your inbox. Your email address itself never appears in this file.
+
+       Until the key is filled in, the form falls back to opening the
+       visitor's mail client, which is how it behaved before.
+       ───────────────────────────────────────────────────────────── */
+    const WEB3FORMS_ACCESS_KEY = 'PASTE-YOUR-ACCESS-KEY-HERE';
+    const CONTACT_FALLBACK_EMAIL = 'mikhazimonika@gmail.com';
+
+    function setFormStatus(message, kind) {
+      const status = document.getElementById('formStatus');
+      status.textContent = message;
+      status.className = 'form-status' + (kind ? ' form-status-' + kind : '');
+      status.hidden = !message;
+    }
+
+    async function handleFormSubmit(event) {
       event.preventDefault();
+
+      const form = event.target;
+      const button = document.getElementById('formSubmitBtn');
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
 
-      const subject = `New inquiry from ${name}`;
-      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      window.location.href = `mailto:mikhazimonika@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // No access key yet — keep the old mailto behaviour so the button
+      // is never a dead end.
+      if (WEB3FORMS_ACCESS_KEY === 'PASTE-YOUR-ACCESS-KEY-HERE') {
+        const subject = `New inquiry from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        window.location.href = `mailto:${CONTACT_FALLBACK_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        closeContactModal();
+        return;
+      }
 
-      closeContactModal();
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      setFormStatus('', null);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `Portfolio enquiry from ${name}`,
+            from_name: 'Portfolio contact form',
+            name: name,
+            email: email,
+            message: message,
+            botcheck: form.botcheck.checked
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          form.reset();
+          setFormStatus('Thanks — your message is on its way. I\'ll be in touch soon.', 'success');
+          button.textContent = 'Sent';
+          setTimeout(() => {
+            closeContactModal();
+            button.disabled = false;
+            button.textContent = 'Send message';
+            setFormStatus('', null);
+          }, 2500);
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (error) {
+        setFormStatus(
+          `Something went wrong sending that. Please email ${CONTACT_FALLBACK_EMAIL} directly.`,
+          'error'
+        );
+        button.disabled = false;
+        button.textContent = 'Send message';
+      }
     }
 
     // Close modal on ESC key
