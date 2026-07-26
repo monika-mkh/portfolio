@@ -3193,21 +3193,19 @@
        CONTACT FORM — delivered by Web3Forms (free, no backend needed)
        so it works on static hosting like GitHub Pages.
 
-       SETUP (one time, ~2 minutes):
-       1. Go to https://web3forms.com
-       2. Enter the inbox that should receive messages
-          (currently: mikhazimonika@gmail.com) and confirm the email
-       3. Copy the Access Key you're given
-       4. Paste it below, replacing PASTE-YOUR-ACCESS-KEY-HERE
-       5. Commit and push — done
+       Messages are delivered to the inbox registered for this key at
+       web3forms.com. To change the destination address, or to rotate
+       the key if it ever gets abused, do it in that dashboard and
+       paste the new key below.
 
-       The access key is safe to publish; it only allows sending TO
-       your inbox. Your email address itself never appears in this file.
+       This key is safe to publish. It is a routing identifier, not a
+       credential: it only permits sending TO the registered inbox,
+       and grants no access to the account or to past submissions.
 
-       Until the key is filled in, the form falls back to opening the
-       visitor's mail client, which is how it behaved before.
+       If delivery ever fails, the catch block below shows the visitor
+       the direct email address so the button is never a dead end.
        ───────────────────────────────────────────────────────────── */
-    const WEB3FORMS_ACCESS_KEY = 'PASTE-YOUR-ACCESS-KEY-HERE';
+    const WEB3FORMS_ACCESS_KEY = '03a2c158-c5b3-4474-9d3a-20d6479b2a95';
     const CONTACT_FALLBACK_EMAIL = 'mikhazimonika@gmail.com';
 
     function setFormStatus(message, kind) {
@@ -3225,16 +3223,6 @@
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
-
-      // No access key yet — keep the old mailto behaviour so the button
-      // is never a dead end.
-      if (WEB3FORMS_ACCESS_KEY === 'PASTE-YOUR-ACCESS-KEY-HERE') {
-        const subject = `New inquiry from ${name}`;
-        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-        window.location.href = `mailto:${CONTACT_FALLBACK_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        closeContactModal();
-        return;
-      }
 
       button.disabled = true;
       button.textContent = 'Sending…';
