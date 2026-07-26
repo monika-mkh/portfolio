@@ -2,23 +2,23 @@
   <title>Placeholder — How-Might-We Ideation (1600×900)</title>
   <defs>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" fill="none" stroke="#e0e7ff" stroke-width="1"/>
+      <path d="M40 0H0V40" fill="none" stroke="#E2E0D8" stroke-width="1"/>
     </pattern>
   </defs>
-  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect width="1600" height="900" fill="#F7F5EF"/>
   <rect width="1600" height="900" fill="url(#grid)"/>
-  <rect x="12" y="12" width="1576" height="876" fill="none" stroke="#6366f1" stroke-width="3"
+  <rect x="12" y="12" width="1576" height="876" fill="none" stroke="#4B7299" stroke-width="3"
         stroke-dasharray="16 12" opacity="0.55" rx="8"/>
-  <g transform="translate(800 360)" fill="none" stroke="#6366f1" stroke-width="4"
+  <g transform="translate(800 360)" fill="none" stroke="#4B7299" stroke-width="4"
      stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
     <rect x="-36" y="-28" width="72" height="56" rx="6"/>
     <circle cx="-14" cy="-8" r="8"/>
     <path d="M-36 20l26-22 20 18 12-10 14 14"/>
   </g>
   <text x="800" y="450" font-family="Bitter, Georgia, serif" font-size="52" font-weight="700"
-        fill="#0f172a" text-anchor="middle">How-Might-We Ideation</text>
+        fill="#242B3D" text-anchor="middle">How-Might-We Ideation</text>
   <text x="800" y="500" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="30"
-        font-weight="500" fill="#475569" text-anchor="middle">Prioritised questions</text>
+        font-weight="500" fill="#485475" text-anchor="middle">Prioritised questions</text>
   <text x="800" y="560" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22"
-        fill="#6366f1" text-anchor="middle">PLACEHOLDER · 1600×900 · case-study-1-howmightwe.svg</text>
+        fill="#4B7299" text-anchor="middle">PLACEHOLDER · 1600×900 · case-study-1-howmightwe.svg</text>
 </svg>

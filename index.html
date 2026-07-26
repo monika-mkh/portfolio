@@ -14,28 +14,53 @@
   <style>
     /* design system tokens */
     :root {
-      /* Tailwind Slate + Indigo - Light Mode */
-      --slate-50: #f8fafc;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-600: #475569;
-      --slate-900: #0f172a;
+      /* ── Palette ──────────────────────────────────────────────
+         Muted steel blues over a warm paper ground. Every value is
+         either taken straight from the source palette or derived
+         from one of its swatches, so the whole page stays in one
+         family. Low saturation throughout: the restraint is the
+         point — nothing here competes with the writing.
+         ───────────────────────────────────────────────────────── */
 
-      --indigo-500: #6366f1;
-      --indigo-600: #4f46e5;
-      --indigo-700: #4338ca;
-      --indigo-200: #e0e7ff;
+      /* Warm neutrals — from #A09D8C / #A8A199 */
+      --paper-50:  #FDFBF5;   /* raised surfaces: cards, modal */
+      --paper-100: #F7F5EF;   /* page ground */
+      --paper-200: #EFEDE5;   /* subtle fills */
+      --paper-300: #E2E0D8;   /* hairline rules */
+      --paper-400: #D1CFC4;   /* stronger rules */
+      --taupe-500: #A09D8C;   /* source swatch */
+
+      /* Steel blues — from #4B7299 / #35729F / #6687A6 */
+      --blue-300: #769AB4;
+      --blue-400: #6687A6;
+      --blue-500: #4B7299;
+      --blue-600: #35729F;
+      --blue-700: #2B5D84;
+
+      /* Deep slates — from #536289, pulled toward neutral so long
+         paragraphs read as ink rather than as a tinted brand colour */
+      --slate-700: #464D5E;
+      --slate-900: #242B3D;
+
+      /* Dusty mauve — from #998294. Used sparingly, for accent only. */
+      --mauve-600: #796475;
 
       /* Semantic Aliases */
-      --bg: var(--slate-50);
+      --bg: var(--paper-100);
+      --surface: var(--paper-50);
+      --surface-sunken: var(--paper-200);
       --text: var(--slate-900);
-      --text-muted: var(--slate-600);
-      --border: var(--indigo-200);
-      --accent: var(--indigo-500);
-      --accent-light: var(--indigo-600);
-      --accent-dark: var(--indigo-700);
-      --accent-hover: var(--indigo-700);
-      --accent-rgb: 99, 102, 241;
+      --text-muted: var(--slate-700);
+      --border: var(--paper-300);
+      --border-strong: var(--paper-400);
+      --accent: var(--blue-500);
+      --accent-light: var(--blue-400);
+      --accent-dark: var(--blue-700);
+      --accent-hover: var(--blue-700);
+      --accent-quiet: var(--blue-300);
+      --mauve: var(--mauve-600);
+      --accent-rgb: 75, 114, 153;
+      --ink-rgb: 36, 43, 61;
 
       /* Fonts & Geometry */
       --font-heading: 'Bitter', serif;
@@ -181,30 +206,32 @@
       color: white;
     }
 
+    /* Hover states shift colour, not position. A button that leaps off
+       the page on hover reads as a template; a quiet tonal shift reads
+       as considered. */
     .btn-primary:hover {
       background: var(--accent-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(var(--accent-rgb), 0.2);
     }
 
     .btn-primary:active {
       background: var(--accent-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 12px rgba(var(--accent-rgb), 0.15);
+      transform: translateY(1px);
     }
 
     .btn-secondary {
-      background: var(--bg);
+      background: var(--surface);
       color: var(--text);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-strong);
     }
 
     .btn-secondary:hover {
-      border-color: var(--text);
-      color: var(--text);
-      background: var(--bg);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(var(--accent-rgb), 0.1);
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      background: var(--surface);
+    }
+
+    .btn-secondary:active {
+      transform: translateY(1px);
     }
 
     .btn-primary:focus-visible,
@@ -233,7 +260,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(var(--ink-rgb), 0.42);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -245,13 +272,13 @@
     }
 
     .modal-content {
-      background: white;
+      background: var(--surface);
       border-radius: var(--radius-modal);
       padding: 48px;
       max-width: 500px;
       width: 100%;
       position: relative;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 20px 60px rgba(var(--ink-rgb), 0.10);
       animation: slideIn 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -324,7 +351,7 @@
     .form-group textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.14);
     }
 
     .form-group textarea {
@@ -358,8 +385,8 @@
     }
 
     .modal .form-status-error {
-      color: #b91c1c;
-      background: rgba(185, 28, 28, 0.08);
+      color: #8C3F38;
+      background: rgba(140, 63, 56, 0.07);
     }
 
     /* sticky navigation */
@@ -379,7 +406,7 @@
     }
 
     .navbar.scrolled {
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 16px rgba(var(--ink-rgb), 0.06);
     }
 
 
@@ -500,10 +527,7 @@
       margin-bottom: 32px;
       max-width: 900px;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--text), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--text);
     }
 
     .hero-subtitle {
@@ -561,7 +585,7 @@
     .project-card {
       display: flex;
       flex-direction: column;
-      background: var(--bg);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
       overflow: hidden;
@@ -582,7 +606,7 @@
       width: 100%;
       aspect-ratio: 3/2;
       overflow: hidden;
-      background: var(--bg);
+      background: var(--surface-sunken);
       flex: 1;
     }
 
@@ -597,7 +621,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.6);   /* White at 60% opacity */
+      background: var(--surface);   /* White at 60% opacity */
     }
 
     .project-card h3 {
@@ -697,14 +721,12 @@
 
     .stat-number {
       font-size: clamp(36px, 5vw, 52px);
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--text), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-weight: 400;      /* light weight at large size reads as confidence, not shouting */
+      color: var(--accent-dark);
       line-height: 1.1;
       margin-bottom: 12px;
       font-family: var(--font-heading);
+      letter-spacing: -0.02em;
     }
 
     .stat-label {
@@ -740,7 +762,7 @@
     .testimonial-featured {
       border: none;
       padding: 2rem;
-      background: rgba(79, 70, 229, 0.06);     /* Subtle brand tint */
+      background: rgba(var(--accent-rgb), 0.05);     /* Subtle brand tint */
       border-radius: var(--radius-card);
       margin: 0 0 64px 0;
       transition: none;
@@ -749,7 +771,7 @@
     .testimonial-featured:hover {
       box-shadow: none;
       transform: none;
-      background: rgba(79, 70, 229, 0.06);    /* No hover change */
+      background: rgba(var(--accent-rgb), 0.05);    /* No hover change */
     }
 
     .testimonial-featured .quote-text {
@@ -796,16 +818,16 @@
     .testimonial-card {
       border: none;                           /* No border - just whitespace */
       padding: 24px;
-      background: rgba(255, 255, 255, 0.6);   /* Subtle white background */
+      background: var(--surface);   /* Subtle white background */
       border-radius: var(--radius-card);
       margin: 0;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);  /* Subtle shadow only */
+      box-shadow: 0 1px 3px rgba(var(--ink-rgb), 0.05);  /* Subtle shadow only */
       transition: none;
       height: auto;                           /* Natural height */
     }
 
     .testimonial-card:hover {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);  /* No change on hover */
+      box-shadow: 0 1px 3px rgba(var(--ink-rgb), 0.05);  /* No change on hover */
       transform: none;
     }
 
@@ -1253,12 +1275,11 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+      height: 2px;                    /* a hairline, not a loading bar */
+      background: var(--accent);
       width: 0%;
       z-index: 1001;
       transition: width 100ms cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3);
     }
 
     /* case study hero */
@@ -1332,8 +1353,8 @@
     }
 
     .cs-snippet-card {
-      background: var(--accent);
-      border: 1px solid var(--accent);
+      background: var(--accent-dark);
+      border: 1px solid var(--accent-dark);
       border-radius: var(--radius-card);
       padding: 24px;
       max-width: 700px;
@@ -1373,13 +1394,14 @@
       margin-left: auto;
       margin-right: auto;
       aspect-ratio: 16 / 9;
-      border-radius: 0;
+      border-radius: var(--radius-card);
       overflow: hidden;
-      border: none;
+      border: 1px solid var(--border);
       margin-bottom: var(--space-4xl);
-      background: var(--bg);
+      background: var(--surface);
       transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      /* a hairline instead of a drop shadow: the image sits on the page
+         rather than floating above it */
     }
 
     .cs-hero-image img {
@@ -1498,7 +1520,7 @@
     }
 
     .contribution-list li {
-      background: var(--bg);
+      background: var(--surface);
       border-left: 4px solid var(--accent);
       border-radius: var(--radius-tag);
       padding: 24px;
@@ -1574,7 +1596,7 @@
     /* ═══════════════════════════════════════ */
     .process-step:nth-child(1) {
       border-top: 4px solid var(--accent);
-      background: rgba(79, 70, 229, 0.02);
+      background: rgba(var(--accent-rgb), 0.025);
     }
 
     .process-step:nth-child(1) .step-num {
@@ -1588,7 +1610,7 @@
     /* ═══════════════════════════════════════ */
     .process-step:nth-child(2) {
       border-top: 4px solid var(--accent);
-      background: rgba(79, 70, 229, 0.02);
+      background: rgba(var(--accent-rgb), 0.025);
     }
 
     .process-step:nth-child(2) .step-num {
@@ -1602,7 +1624,7 @@
     /* ═══════════════════════════════════════ */
     .process-step:nth-child(3) {
       border-top: 4px solid var(--accent);
-      background: rgba(79, 70, 229, 0.02);
+      background: rgba(var(--accent-rgb), 0.025);
     }
 
     .process-step:nth-child(3) .step-num {
@@ -1616,7 +1638,7 @@
     /* ═══════════════════════════════════════ */
     .process-step:nth-child(4) {
       border-top: 4px solid var(--accent);
-      background: rgba(79, 70, 229, 0.02);
+      background: rgba(var(--accent-rgb), 0.025);
     }
 
     .process-step:nth-child(4) .step-num {
@@ -1632,7 +1654,7 @@
     /* ═════════════════════════════════════════ */
     .process-step:nth-child(5) {
       border-top: 4px solid var(--accent);
-      background: rgba(79, 70, 229, 0.02);
+      background: rgba(var(--accent-rgb), 0.025);
     }
 
     .process-step:nth-child(5) .step-num {
@@ -1649,23 +1671,23 @@
     }
 
     .process-step:nth-child(1):hover {
-      background: rgba(79, 70, 229, 0.05);
+      background: rgba(var(--accent-rgb), 0.06);
     }
 
     .process-step:nth-child(2):hover {
-      background: rgba(79, 70, 229, 0.05);
+      background: rgba(var(--accent-rgb), 0.06);
     }
 
     .process-step:nth-child(3):hover {
-      background: rgba(79, 70, 229, 0.05);
+      background: rgba(var(--accent-rgb), 0.06);
     }
 
     .process-step:nth-child(4):hover {
-      background: rgba(79, 70, 229, 0.05);
+      background: rgba(var(--accent-rgb), 0.06);
     }
 
     .process-step:nth-child(5):hover {
-      background: rgba(79, 70, 229, 0.05);
+      background: rgba(var(--accent-rgb), 0.06);
     }
 
     .process-step h3 {
@@ -1685,9 +1707,8 @@
 
     /* Active/In-progress step styling - WCAG AAA accessible */
     .process-step-active {
-      background: var(--bg);
-      border-top-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
+      background: var(--surface);
+      border-top-color: var(--accent-dark);
     }
 
     .process-step-active .step-num {
@@ -1748,7 +1769,7 @@
       border-radius: var(--radius-card);
       overflow: hidden;
       border: 1px solid var(--border);
-      background: var(--bg);
+      background: var(--surface);
       transition: border-color 0.3s ease;
     }
 
@@ -1785,7 +1806,7 @@
     }
 
     .made-callout {
-      background: var(--bg);
+      background: var(--surface);
       border-radius: var(--radius-card);
       padding: 24px;
       margin-top: 8px;
@@ -1819,7 +1840,7 @@
     }
 
     .solution-mock {
-      background: var(--bg);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
       overflow: hidden;
@@ -1828,12 +1849,12 @@
     }
 
     .solution-mock:hover {
-      transform: translateY(-4px);
+      border-color: var(--accent-light);
     }
 
     .solution-mock-screen {
       aspect-ratio: 4 / 3;
-      background: var(--bg);
+      background: var(--surface-sunken);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1880,7 +1901,7 @@
     }
 
     .impact-card {
-      background: var(--bg);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
       padding: 32px;
@@ -1963,7 +1984,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: var(--bg);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
       padding: 32px;
