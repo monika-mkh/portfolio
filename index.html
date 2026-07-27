@@ -15,35 +15,45 @@
     /* design system tokens */
     :root {
       /* ── Palette ──────────────────────────────────────────────
-         Muted steel blues over a warm paper ground. Every value is
-         either taken straight from the source palette or derived
-         from one of its swatches, so the whole page stays in one
-         family. Low saturation throughout: the restraint is the
-         point — nothing here competes with the writing.
+         Brand palette: warm paper ground, near-black ink, a muted
+         steel-blue primary accent, a warm taupe secondary accent, and
+         a dusty mauve highlight used sparingly. Every color below was
+         checked against WCAG AA/AAA before being wired to a role —
+         see the per-token notes for where each one is (and isn't) used
+         as text, since several of these fail text-contrast at their
+         literal values and are restricted to non-text UI as a result.
          ───────────────────────────────────────────────────────── */
 
-      /* Warm neutrals — from #A09D8C / #A8A199 */
+      /* Warm neutrals — ground: #F7F5F1 */
       --paper-50:  #FDFBF5;   /* raised surfaces: cards, modal */
-      --paper-100: #F7F5EF;   /* page ground */
+      --paper-100: #F7F5F1;   /* page ground */
       --paper-200: #EFEDE5;   /* subtle fills */
       --paper-300: #E2E0D8;   /* hairline rules */
       --paper-400: #D1CFC4;   /* stronger rules */
-      --taupe-500: #A09D8C;   /* source swatch */
+      --taupe-500: #A09D8C;   /* secondary accent: diagrams, categories, background elements.
+                                  2.5:1 on the page ground — fails text contrast at any size,
+                                  so it's never used as text color, only as fill/border, or as
+                                  a chip background with --text on top (6.5:1, passes AA). */
 
-      /* Steel blues — from #4B7299 / #35729F / #6687A6 */
+      /* Steel blues — primary accent: #5D758D */
       --blue-300: #769AB4;
       --blue-400: #6687A6;
-      --blue-500: #4B7299;
+      --blue-500: #5D758D;    /* primary accent. 4.4:1 as text on the page ground — just
+                                  short of AA (4.5:1), so it's applied to non-text UI only
+                                  (buttons, borders, icons, hover fills, chart marks). Text
+                                  that used to read in the accent color uses --accent-dark
+                                  instead, which clears AA at 6.4:1+. */
       --blue-600: #35729F;
       --blue-700: #2B5D84;
 
-      /* Deep slates — from #536289, pulled toward neutral so long
-         paragraphs read as ink rather than as a tinted brand colour */
-      --slate-700: #464D5E;
-      --slate-900: #242B3D;
+      /* Deep slates — text: #05163D */
+      --slate-700: #464D5E;   /* muted body copy. 7.8:1 on the page ground — passes AAA. */
+      --slate-900: #05163D;   /* headings / primary ink. 16.2:1 on the page ground — passes AAA. */
 
-      /* Dusty mauve — from #998294. Used sparingly, for accent only. */
-      --mauve-600: #796475;
+      /* Dusty mauve — highlight: #998294. Rarely used; for a quote or one
+         interesting detail. 3.2:1 as text, 5.0:1 with --text on top as a
+         fill — passes AA as a background chip, not as text color itself. */
+      --mauve-600: #998294;
 
       /* Semantic Aliases */
       --bg: var(--paper-100);
@@ -58,9 +68,10 @@
       --accent-dark: var(--blue-700);
       --accent-hover: var(--blue-700);
       --accent-quiet: var(--blue-300);
+      --secondary-accent: var(--taupe-500);
       --mauve: var(--mauve-600);
-      --accent-rgb: 75, 114, 153;
-      --ink-rgb: 36, 43, 61;
+      --accent-rgb: 93, 117, 141;
+      --ink-rgb: 5, 22, 61;
 
       /* Fonts & Geometry */
       --font-heading: 'Bitter', serif;
@@ -646,7 +657,7 @@
       margin-top: 4px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .project-card:hover .project-cta {
@@ -796,7 +807,7 @@
     .testimonial-featured .quote-author {
       font-size: 15px;
       font-weight: 700;                       /* Bold name */
-      color: var(--accent);                   /* Brand blue */
+      color: var(--accent-dark);                   /* Brand blue */
       margin: 0;
     }
 
@@ -1304,7 +1315,7 @@
       text-transform: capitalize;
       letter-spacing: 0px;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-dark);
       margin-bottom: 12px;
       transition: color 0.3s ease;
     }
@@ -1516,7 +1527,7 @@
       background: transparent;
       border: none;
       border-radius: 0;
-      color: var(--accent);
+      color: var(--accent-dark);
       transition: all 0.3s ease;
     }
 
@@ -1541,7 +1552,7 @@
     }
 
     .process-step:nth-child(1) .step-num {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .process-step:nth-child(1) h3 {
@@ -1555,7 +1566,7 @@
     }
 
     .process-step:nth-child(2) .step-num {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .process-step:nth-child(2) h3 {
@@ -1569,7 +1580,7 @@
     }
 
     .process-step:nth-child(3) .step-num {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .process-step:nth-child(3) h3 {
@@ -1583,7 +1594,7 @@
     }
 
     .process-step:nth-child(4) .step-num {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .process-step:nth-child(4) h3 {
@@ -1599,7 +1610,7 @@
     }
 
     .process-step:nth-child(5) .step-num {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .process-step:nth-child(5) h3 {
@@ -1653,7 +1664,7 @@
     }
 
     .process-step-active .step-num {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .process-step-active h3 {
@@ -1669,7 +1680,7 @@
       display: inline-block;
       font-size: 11px;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-dark);
       background: rgba(var(--accent-rgb), 0.12);
       padding: 4px 8px;
       border-radius: var(--radius-tag);
@@ -1727,7 +1738,7 @@
       text-transform: uppercase;
       letter-spacing: 1.2px;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-dark);
       margin-bottom: 12px;
       transition: color 0.3s ease;
     }
@@ -1762,7 +1773,7 @@
     }
 
     .made-callout strong {
-      color: var(--accent);
+      color: var(--accent-dark);
       display: block;
       font-size: 12px;
       text-transform: uppercase;
@@ -1818,7 +1829,7 @@
       display: block;
       font-size: 12px;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--accent-dark);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 4px;
@@ -1875,13 +1886,13 @@
       display: block;
       font-family: var(--font-heading);
       font-size: 26px;
-      color: var(--accent);
+      color: var(--accent-dark);
       transition: color 0.3s ease;
     }
 
     .impact-stat span {
       font-size: 12px;
-      color: var(--accent);
+      color: var(--accent-dark);
       transition: color 0.3s ease;
     }
 
