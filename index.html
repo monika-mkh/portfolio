@@ -20,8 +20,8 @@
          a dusty mauve highlight used sparingly. Every color below was
          checked against WCAG AA/AAA before being wired to a role —
          see the per-token notes for where each one is (and isn't) used
-         as text, since several of these fail text-contrast at their
-         literal values and are restricted to non-text UI as a result.
+         as text, since one of these (the secondary accent) fails text
+         contrast outright and is restricted to non-text/decorative use.
          ───────────────────────────────────────────────────────── */
 
       /* Warm neutrals — ground: #F7F5F1 */
@@ -30,19 +30,18 @@
       --paper-200: #EFEDE5;   /* subtle fills */
       --paper-300: #E2E0D8;   /* hairline rules */
       --paper-400: #D1CFC4;   /* stronger rules */
-      --taupe-500: #A09D8C;   /* secondary accent: diagrams, categories, background elements.
-                                  2.5:1 on the page ground — fails text contrast at any size,
-                                  so it's never used as text color, only as fill/border, or as
-                                  a chip background with --text on top (6.5:1, passes AA). */
+      --taupe-500: #A09D8C;   /* secondary accent: diagrams, categories, background elements —
+                                  decorative only, never text. 2.5:1 on the page ground fails
+                                  text contrast at any size; usable as a chip background with
+                                  --text on top (6.5:1, passes AA, not AAA). */
 
-      /* Steel blues — primary accent: #5D758D */
+      /* Steel blues — primary accent: #5B728A */
       --blue-300: #769AB4;
       --blue-400: #6687A6;
-      --blue-500: #5D758D;    /* primary accent. 4.4:1 as text on the page ground — just
-                                  short of AA (4.5:1), so it's applied to non-text UI only
-                                  (buttons, borders, icons, hover fills, chart marks). Text
-                                  that used to read in the accent color uses --accent-dark
-                                  instead, which clears AA at 6.4:1+. */
+      --blue-500: #5B728A;    /* primary accent. 4.57:1 as text on the page ground — passes
+                                  AA (4.5:1) and AAA for large text (4.5:1), but not AAA for
+                                  normal text (7:1). Used for links, small interactive text,
+                                  and non-text UI (buttons, borders, icons, hover fills). */
       --blue-600: #35729F;
       --blue-700: #2B5D84;
 
@@ -50,10 +49,10 @@
       --slate-700: #464D5E;   /* muted body copy. 7.8:1 on the page ground — passes AAA. */
       --slate-900: #05163D;   /* headings / primary ink. 16.2:1 on the page ground — passes AAA. */
 
-      /* Dusty mauve — highlight: #998294. Rarely used; for a quote or one
-         interesting detail. 3.2:1 as text, 5.0:1 with --text on top as a
-         fill — passes AA as a background chip, not as text color itself. */
-      --mauve-600: #998294;
+      /* Dusty mauve — highlight: #7A6876. Rarely used; for a quote or one
+         interesting detail. 4.74:1 as text on the page ground — passes AA
+         and AAA-large, not AAA-normal (7:1). */
+      --mauve-600: #7A6876;
 
       /* Semantic Aliases */
       --bg: var(--paper-100);
@@ -70,7 +69,7 @@
       --accent-quiet: var(--blue-300);
       --secondary-accent: var(--taupe-500);
       --mauve: var(--mauve-600);
-      --accent-rgb: 93, 117, 141;
+      --accent-rgb: 91, 114, 138;
       --ink-rgb: 5, 22, 61;
 
       /* Fonts & Geometry */
@@ -657,7 +656,7 @@
       margin-top: 4px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .project-card:hover .project-cta {
@@ -807,7 +806,7 @@
     .testimonial-featured .quote-author {
       font-size: 15px;
       font-weight: 700;                       /* Bold name */
-      color: var(--accent-dark);                   /* Brand blue */
+      color: var(--accent);                   /* Brand blue */
       margin: 0;
     }
 
@@ -1315,7 +1314,7 @@
       text-transform: capitalize;
       letter-spacing: 0px;
       font-weight: 600;
-      color: var(--accent-dark);
+      color: var(--accent);
       margin-bottom: 12px;
       transition: color 0.3s ease;
     }
@@ -1527,7 +1526,7 @@
       background: transparent;
       border: none;
       border-radius: 0;
-      color: var(--accent-dark);
+      color: var(--accent);
       transition: all 0.3s ease;
     }
 
@@ -1552,7 +1551,7 @@
     }
 
     .process-step:nth-child(1) .step-num {
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .process-step:nth-child(1) h3 {
@@ -1566,7 +1565,7 @@
     }
 
     .process-step:nth-child(2) .step-num {
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .process-step:nth-child(2) h3 {
@@ -1580,7 +1579,7 @@
     }
 
     .process-step:nth-child(3) .step-num {
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .process-step:nth-child(3) h3 {
@@ -1594,7 +1593,7 @@
     }
 
     .process-step:nth-child(4) .step-num {
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .process-step:nth-child(4) h3 {
@@ -1610,7 +1609,7 @@
     }
 
     .process-step:nth-child(5) .step-num {
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .process-step:nth-child(5) h3 {
@@ -1664,7 +1663,7 @@
     }
 
     .process-step-active .step-num {
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .process-step-active h3 {
@@ -1680,7 +1679,7 @@
       display: inline-block;
       font-size: 11px;
       font-weight: 600;
-      color: var(--accent-dark);
+      color: var(--accent);
       background: rgba(var(--accent-rgb), 0.12);
       padding: 4px 8px;
       border-radius: var(--radius-tag);
@@ -1738,7 +1737,7 @@
       text-transform: uppercase;
       letter-spacing: 1.2px;
       font-weight: 600;
-      color: var(--accent-dark);
+      color: var(--accent);
       margin-bottom: 12px;
       transition: color 0.3s ease;
     }
@@ -1773,7 +1772,7 @@
     }
 
     .made-callout strong {
-      color: var(--accent-dark);
+      color: var(--accent);
       display: block;
       font-size: 12px;
       text-transform: uppercase;
@@ -1829,7 +1828,7 @@
       display: block;
       font-size: 12px;
       font-weight: 700;
-      color: var(--accent-dark);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 4px;
@@ -1886,13 +1885,13 @@
       display: block;
       font-family: var(--font-heading);
       font-size: 26px;
-      color: var(--accent-dark);
+      color: var(--accent);
       transition: color 0.3s ease;
     }
 
     .impact-stat span {
       font-size: 12px;
-      color: var(--accent-dark);
+      color: var(--accent);
       transition: color 0.3s ease;
     }
 
