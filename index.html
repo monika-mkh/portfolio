@@ -591,6 +591,23 @@
       transform: translateY(-50%);
       z-index: 1;
       color: var(--text-muted);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 200ms ease-out;
+    }
+
+    .hero-scroll:hover {
+      color: var(--text);
+    }
+
+    .hero-scroll:hover .hero-scroll-line {
+      background: var(--text);
+    }
+
+    .hero-scroll:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 4px;
+      border-radius: var(--radius-tag);
     }
 
     .hero-scroll-label {
@@ -605,6 +622,7 @@
       width: 1px;
       height: 56px;
       background: var(--border-strong);
+      transition: background-color 200ms ease-out;
     }
 
     @keyframes fadeInUp {
@@ -2287,13 +2305,13 @@
           My work combines research, systems thinking and strategy to help teams understand complexity before deciding what to build.
         </p>
       </div>
-      <div class="hero-scroll" aria-hidden="true">
+      <a href="#works" class="hero-scroll" aria-label="Scroll to case studies">
         <span class="hero-scroll-label">Scroll</span>
         <span class="hero-scroll-line"></span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
-      </div>
+      </a>
     </section>
 
       <!-- stats section -->
