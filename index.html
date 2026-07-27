@@ -520,33 +520,83 @@
     .hero-content {
       padding: 140px 48px 100px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0;
       width: 100%;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 600ms ease-out forwards;
       position: relative;
       z-index: 1;
-      text-align: center;
+      text-align: left;
+    }
+
+    .hero-eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 24px;
+      transition: color 0.3s ease;
     }
 
     .hero-title {
       font-size: clamp(40px, 6vw, 64px);
-      line-height: 1.25;
+      line-height: 1.15;
       letter-spacing: -0.03em;
-      margin-bottom: 32px;
-      max-width: 900px;
+      margin-bottom: 28px;
+      max-width: 700px;
       font-weight: 700;
       color: var(--text);
+    }
+
+    .hero-title-dot {
+      color: var(--mauve);
+    }
+
+    .hero-divider {
+      width: 200px;
+      height: 1px;
+      background: var(--border-strong);
+      margin-bottom: 28px;
     }
 
     .hero-subtitle {
       font-size: 18px;
       color: var(--text-muted);
       line-height: 1.7;
-      margin: 0 auto 48px;
-      max-width: 650px;
+      margin: 0;
+      max-width: 480px;
       transition: color 0.3s ease;
+    }
+
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      color: var(--text-muted);
+    }
+
+    .hero-scroll-label {
+      writing-mode: vertical-rl;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 56px;
+      background: var(--border-strong);
     }
 
     @keyframes fadeInUp {
@@ -1065,7 +1115,10 @@
 
       .hero-subtitle {
         font-size: 16px;
-        margin-bottom: 40px;
+      }
+
+      .hero-scroll {
+        display: none;
       }
 
       .works {
@@ -2219,11 +2272,19 @@
     <!-- hero section -->
     <section class="hero" id="hero">
       <div class="hero-content">
-        <h1 class="hero-title">Hi! I'm Mónika</h1>
+        <span class="hero-eyebrow">Research &amp; Service Design</span>
+        <h1 class="hero-title">Helping people make sense of systems<span class="hero-title-dot">.</span></h1>
+        <div class="hero-divider" aria-hidden="true"></div>
         <p class="hero-subtitle">
-         Over the past 3.5 years, I've worked with cross-functional teams on complex B2B problems, uncovering the insights that help them move beyond assumptions. My research connects user needs, business goals, and technical constraints to support confident design decisions.
+          My work combines research, systems thinking and strategy to help teams understand complexity before deciding what to build.
         </p>
-        <a href="#works" class="btn btn-primary btn-large">Explore my work</a>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span class="hero-scroll-label">Scroll</span>
+        <span class="hero-scroll-line"></span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
       </div>
     </section>
 
