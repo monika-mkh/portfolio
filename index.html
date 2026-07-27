@@ -781,57 +781,6 @@
       margin-bottom: 0;
     }
 
-    /* stats section */
-    .stats {
-      padding: 48px 48px 64px 48px;
-      background: var(--bg);
-      transition: background-color 0.3s ease;
-    }
-
-    .stats-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 48px;
-      margin-bottom: 80px;
-      margin-top: 64px;
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 400;      /* light weight at large size reads as confidence, not shouting */
-      color: var(--accent-dark);
-      line-height: 1.1;
-      margin-bottom: 12px;
-      font-family: var(--font-heading);
-      letter-spacing: -0.02em;
-    }
-
-    .stat-label {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text-muted);
-      line-height: 1.5;
-      transition: color 0.3s ease;
-    }
-
-    .stats-description {
-      max-width: 750px;
-      margin: 0 auto;
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      transition: color 0.3s ease;
-    }
-
     /* reviews / testimonials section */
     .reviews {
       padding: 64px 48px;
@@ -1051,7 +1000,6 @@
       .works,
       .about,
       .reviews,
-      .stats,
       .cta-section {
         padding: 100px 40px;
       }
@@ -1188,14 +1136,6 @@
         padding: 80px 24px;
       }
 
-      .stats {
-        padding: 80px 24px;
-      }
-
-      .stats-grid {
-        gap: 32px;
-      }
-
       .testimonials-grid {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1255,7 +1195,6 @@
       .works,
       .about,
       .reviews,
-      .stats,
       .cta-section {
         padding: 60px 16px;
       }
@@ -1277,14 +1216,6 @@
       .about-container {
         gap: 32px;
         margin-top: 40px;
-      }
-
-      .stats-grid {
-        gap: 24px;
-      }
-
-      .stat-number {
-        font-size: clamp(32px, 5vw, 48px);
       }
 
       .testimonials-grid {
@@ -2320,28 +2251,6 @@
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
       </a>
-    </section>
-
-      <!-- stats section -->
-    <section class="stats">
-      <div class="stats-wrap">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">35+</div>
-            <div class="stat-label">Research projects</div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Research participants</div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-number">3.5+</div>
-            <div class="stat-label">Years of experience</div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- works section -->
