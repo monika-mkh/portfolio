@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* design system tokens */
@@ -74,7 +74,7 @@
 
       /* Fonts & Geometry */
       --font-heading: 'Playfair Display', serif;
-      --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
 
       --radius-tag: 4px;    /* tags, inputs, tape strips */
@@ -129,8 +129,16 @@
     }
 
     /* Headings styling */
-    h1, h2, h3, .logo, .project-card h3 {
+    h1, h2, h3, .project-card h3 {
       font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--text);
+      transition: color 0.3s ease;
+    }
+
+    /* Logo uses the body font (Inter), not the heading serif */
+    .logo {
+      font-family: var(--font-body);
       font-weight: 700;
       color: var(--text);
       transition: color 0.3s ease;
