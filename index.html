@@ -1500,171 +1500,72 @@
       }
     }
 
-    /* process timeline */
+    /* process timeline - plain columns with dividers */
     .process-steps {
       list-style: none;
-      counter-reset: process;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
       padding: 0;
-      margin-top: 48px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-strong);
+      transition: border-color 0.3s ease;
     }
 
     .process-step {
-      display: flex;
-      flex-direction: column;
-      background: var(--bg);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 24px;
-      transition: all 0.3s ease;
-      position: relative;
-      width: 100%;
+      padding: 0 24px;
+      border-right: 1px solid var(--border);
+      transition: border-color 0.3s ease;
     }
 
-    /* Icon display - centered, no positioning */
+    .process-step:first-child {
+      padding-left: 0;
+    }
+
+    .process-step:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+
     .step-num {
       display: block;
-      font-size: 14px;
-      font-weight: 700;
-      text-align: left;
-      margin-bottom: 12px;
-      margin-top: 0;
-      position: static;
-      width: auto;
-      height: auto;
-      background: transparent;
-      border: none;
-      border-radius: 0;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
       color: var(--accent);
-      transition: all 0.3s ease;
-    }
-
-    /* Remove positioning for odd/even */
-    .process-step:nth-child(odd) .step-num,
-    .process-step:nth-child(even) .step-num {
-      right: auto;
-      left: auto;
-    }
-
-    /* Remove timeline */
-    .process-steps::before {
-      display: none;
-    }
-
-    /* ═══════════════════════════════════════ */
-    /* All cards use brand blue */
-    /* ═══════════════════════════════════════ */
-    .process-step:nth-child(1) {
-      border-top: 4px solid var(--accent);
-      background: rgba(var(--accent-rgb), 0.025);
-    }
-
-    .process-step:nth-child(1) .step-num {
-      color: var(--accent);
-    }
-
-    .process-step:nth-child(1) h3 {
-      color: var(--text);
-    }
-
-    /* ═══════════════════════════════════════ */
-    .process-step:nth-child(2) {
-      border-top: 4px solid var(--accent);
-      background: rgba(var(--accent-rgb), 0.025);
-    }
-
-    .process-step:nth-child(2) .step-num {
-      color: var(--accent);
-    }
-
-    .process-step:nth-child(2) h3 {
-      color: var(--text);
-    }
-
-    /* ═══════════════════════════════════════ */
-    .process-step:nth-child(3) {
-      border-top: 4px solid var(--accent);
-      background: rgba(var(--accent-rgb), 0.025);
-    }
-
-    .process-step:nth-child(3) .step-num {
-      color: var(--accent);
-    }
-
-    .process-step:nth-child(3) h3 {
-      color: var(--text);
-    }
-
-    /* ═══════════════════════════════════════ */
-    .process-step:nth-child(4) {
-      border-top: 4px solid var(--accent);
-      background: rgba(var(--accent-rgb), 0.025);
-    }
-
-    .process-step:nth-child(4) .step-num {
-      color: var(--accent);
-    }
-
-    .process-step:nth-child(4) h3 {
-      color: var(--text);
-    }
-
-    /* ═════════════════════════════════════════ */
-    /* PHASE 5: Communication (Brand blue) */
-    /* ═════════════════════════════════════════ */
-    .process-step:nth-child(5) {
-      border-top: 4px solid var(--accent);
-      background: rgba(var(--accent-rgb), 0.025);
-    }
-
-    .process-step:nth-child(5) .step-num {
-      color: var(--accent);
-    }
-
-    .process-step:nth-child(5) h3 {
-      color: var(--text);
-    }
-
-    /* Hover states — increase saturation */
-    .process-step:hover {
-      border-color: var(--accent);
-    }
-
-    .process-step:nth-child(1):hover {
-      background: rgba(var(--accent-rgb), 0.06);
-    }
-
-    .process-step:nth-child(2):hover {
-      background: rgba(var(--accent-rgb), 0.06);
-    }
-
-    .process-step:nth-child(3):hover {
-      background: rgba(var(--accent-rgb), 0.06);
-    }
-
-    .process-step:nth-child(4):hover {
-      background: rgba(var(--accent-rgb), 0.06);
-    }
-
-    .process-step:nth-child(5):hover {
-      background: rgba(var(--accent-rgb), 0.06);
+      transition: color 0.3s ease;
     }
 
     .process-step h3 {
-      font-size: 16px;
-      margin-bottom: 8px;
+      font-size: 17px;
+      margin-bottom: 10px;
       margin-top: 0;
-      transition: color 0.3s ease;
     }
 
     .process-step p {
       font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
       margin: 0;
       transition: color 0.3s ease;
+    }
+
+    @media (max-width: 1024px) {
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .process-step {
+        padding: 0;
+        border-right: none;
+      }
+
+      .process-step + .process-step {
+        border-top: 1px solid var(--border-strong);
+        padding-top: 32px;
+      }
     }
 
     /* Active/In-progress step styling - WCAG AAA accessible */
@@ -1854,25 +1755,20 @@
       transition: color 0.3s ease;
     }
 
-    /* impact grid */
+    /* impact grid - plain columns with divider */
     .impact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .impact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 32px;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-strong);
+      transition: border-color 0.3s ease;
     }
 
     .impact-card h3 {
-      font-size: 18px;
-      margin-bottom: 12px;
+      font-size: 19px;
+      margin-bottom: 18px;
     }
 
     .impact-card > p {
@@ -1907,31 +1803,18 @@
     }
 
     .impact-card ul {
-      list-style: none;
-      padding: 0;
+      list-style: disc;
+      padding-left: 18px;
       margin: 0;
-    }
-
-    .impact-card ul li {
-      font-size: 14px;
+      font-size: 15px;
+      line-height: 1.8;
       color: var(--text-muted);
-      line-height: 1.6;
-      padding-left: 24px;
-      position: relative;
-      margin-bottom: 10px;
       transition: color 0.3s ease;
     }
 
-    .impact-card ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      transition: background-color 0.3s ease;
+    .impact-card ul strong {
+      color: var(--text);
+      transition: color 0.3s ease;
     }
 
     /* end-of-case-study CTA */
@@ -2006,30 +1889,6 @@
         grid-template-columns: 1fr;
       }
 
-      .process-steps {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        margin-top: 32px;
-      }
-
-      .process-step {
-        padding: 16px 14px;
-      }
-
-      .step-num {
-        font-size: 24px;
-        margin-bottom: 8px;
-      }
-
-      .process-step h3 {
-        font-size: 16px;
-        margin-bottom: 8px;
-      }
-
-      .process-step p {
-        font-size: 14px;
-      }
-
       .insight-block,
       .insight-block.reverse {
         grid-template-columns: 1fr;
@@ -2095,17 +1954,8 @@
 
       .process-steps {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 24px;
         margin-top: 24px;
-      }
-
-      .process-step {
-        padding: 12px 12px;
-      }
-
-      .step-num {
-        font-size: 20px;
-        margin-bottom: 6px;
       }
 
       .insight-block,
@@ -2591,6 +2441,7 @@
     <!-- case study hero -->
     <section class="cs-hero" aria-labelledby="cs2-title">
       <div class="cs-hero-inner">
+        <p class="cs-hero-tag">Research &amp; Assessment Design</p>
         <h1 class="cs-title" id="cs2-title">Making portal maturity measurable</h1>
         <p class="cs-hero-subtitle">Enterprise clients had invested heavily in developer portals but had no way to know if it was working — or what to build next.</p>
       </div>
@@ -2626,8 +2477,8 @@
       <p class="cs-body-text">
         Internally, every evaluation relied on expert judgement, making assessments difficult to compare or scale.
       </p>
-      <p class="cs-body-text">
-        <strong>The challenge wasn't reviewing interfaces—it was creating a framework that connected UX, technical capability, and business value into a measurable definition of portal maturity.</strong>
+      <p class="cs-body-text cs-body-emphasis">
+        The challenge wasn't reviewing interfaces — it was creating a framework that connected UX, technical capability, and business value into a measurable definition of portal maturity.
       </p>
     </section>
 
@@ -2660,7 +2511,7 @@
         <li class="process-step">
           <span class="step-num" aria-hidden="true">04</span>
           <h3>Communication</h3>
-          <p>Created executive-ready data visualization alongside detailed engineering views to support different stakeholder needs.</p>
+          <p>Created executive-ready data visualizations alongside detailed engineering views for different stakeholders.</p>
         </li>
         <li class="process-step">
           <span class="step-num" aria-hidden="true">05</span>
@@ -2675,7 +2526,7 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
         <!-- Executive View Column -->
         <div>
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--text);">Executive level view</h3>
+          <h3 style="font-size: 26px; font-weight: 700; margin-bottom: 28px; color: var(--text);">Executive level view</h3>
           <div style="display: flex; align-items: center; justify-content: center;">
             <img src="images/case-study-2-radarchart.jpg" alt="Radar chart scoring six stages of portal maturity: Discovery 53 percent, Decision-Making 26 percent, Onboarding 47 percent, Go Live 69 percent, Maintenance 56 percent, Community 10 percent." style="width: 100%; border-radius: var(--radius-card);">
           </div>
@@ -2685,12 +2536,12 @@
         </div>
         <!-- Engineering View Column -->
         <div>
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--text);">Engineering level breakdown</h3>
+          <h3 style="font-size: 26px; font-weight: 700; margin-bottom: 28px; color: var(--text);">Engineering level breakdown</h3>
           <div style="display: flex; align-items: center; justify-content: center;">
             <img src="images/case-study-2-barchart.jpg" alt="Bar chart breaking the six maturity stages into individual criteria, each banded high, medium or low. Strongest are Visual Design at 71 percent and Legal and Compliance at 69 percent; weakest are Community and Engagement at 10 percent and Pricing Clarity at 13 percent." style="width: 100%; border-radius: var(--radius-card);">
           </div>
           <p class="cs-body-text" style="margin-top: 24px;">
-            Created assessment outputs tailored to product management and engineering to show a more granular view to results.
+            Created assessment outputs tailored to product management and engineering to show a more granular view of results.
           </p>
         </div>
       </div>
@@ -2715,7 +2566,7 @@
       <div class="impact-grid">
         <div class="impact-card">
           <h3>For clients</h3>
-          <ul style="margin-top: 16px; color: var(--text-muted); line-height: 1.8;">
+          <ul>
             <li>Clear understanding of current maturity</li>
             <li>Context-aware recommendations</li>
             <li>Better prioritization of future investments</li>
@@ -2724,8 +2575,8 @@
         </div>
         <div class="impact-card">
           <h3>For the business</h3>
-          <ul style="margin-top: 16px; color: var(--text-muted); line-height: 1.8;">
-            <li>Reduced evaluation time from <strong>by 80%</strong></li>
+          <ul>
+            <li>Reduced evaluation time by <strong>80%</strong></li>
             <li>Enabled benchmarking across enterprise clients</li>
             <li>Supported sales conversations with evidence rather than assumptions</li>
             <li>Generated market insights</li>
