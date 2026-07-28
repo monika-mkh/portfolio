@@ -129,7 +129,7 @@
     }
 
     /* Headings styling */
-    h1, h2, h3, .project-card h3 {
+    h1, h2, h3 {
       font-family: var(--font-heading);
       font-weight: 700;
       color: var(--text);
@@ -637,19 +637,15 @@
       padding: 64px 48px;
       background: var(--bg);
       transition: background-color 0.3s ease;
-    }
-
-    /* Center works children to match about-wrap behavior */
-    .works .section-header,
-    .works .works-grid {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      position: relative;
     }
 
     .section-header {
       margin-bottom: 48px;
       text-align: left;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
 
@@ -661,85 +657,206 @@
       font-weight: 700;
     }
 
-    .works-grid {
+    /* works intro: eyebrow/title/subtitle beside a decorative image, with a scroll cue */
+    .works-intro {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-bottom: 48px;
+      grid-template-columns: 1fr 1fr auto;
+      align-items: center;
+      gap: 64px;
+      max-width: 1200px;
+      margin: 0 auto 96px;
     }
 
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      background: var(--surface);
-      border: 1px solid var(--border);
+    .works-eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .works-title {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+
+    .works-title-dot {
+      color: var(--mauve);
+    }
+
+    .works-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 420px;
+      transition: color 0.3s ease;
+    }
+
+    .works-intro-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
       border-radius: var(--radius-card);
       overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      height: 100%;
-    }
-
-    .project-card:hover {
-      border-color: var(--accent);
-    }
-
-    .project-card:active {
-      border-color: var(--accent-dark);
-    }
-
-    .project-image {
-      width: 100%;
-      aspect-ratio: 3/2;
-      overflow: hidden;
       background: var(--surface-sunken);
-      flex: 1;
+      border: 1px solid var(--border);
     }
 
-    .project-image img {
+    .works-intro-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .project-content {
-      padding: 24px;
+    .works-scroll {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      background: var(--surface);   /* White at 60% opacity */
+      align-items: center;
+      gap: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 200ms ease-out;
     }
 
-    .project-card h3 {
-      font-size: 18px;
-      line-height: 1.3;
-      margin: 0;
-      font-weight: 700;
+    .works-scroll:hover {
       color: var(--text);
     }
 
-    .project-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin: 0;
-      font-weight: 500;
+    .works-scroll:hover .works-scroll-line {
+      background: var(--text);
     }
 
-    .project-cta {
+    .works-scroll:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 4px;
+      border-radius: var(--radius-tag);
+    }
+
+    .works-scroll-label {
+      writing-mode: vertical-rl;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .works-scroll-line {
+      width: 1px;
+      height: 56px;
+      background: var(--border-strong);
+      transition: background-color 200ms ease-out;
+    }
+
+    /* numbered case study list */
+    .works-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .work-item {
       display: flex;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .work-item-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .work-item-number {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--mauve);
+      line-height: 1;
+    }
+
+    .work-item-divider {
+      flex: 1;
+      width: 1px;
+      background: var(--border-strong);
+    }
+
+    .work-item-featured-label {
+      writing-mode: vertical-rl;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .work-item-content {
+      flex: 1;
+    }
+
+    .work-item-title {
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.25;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .work-item-category {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .work-item-description {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 420px;
+      transition: color 0.3s ease;
+    }
+
+    .work-item-link {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 4px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--accent);
+      text-decoration: none;
+      transition: gap 200ms ease-out;
     }
 
-    .project-card:hover .project-cta {
-      gap: 8px;
+    .work-item-link:hover {
+      gap: 12px;
     }
 
-    .project-cta svg {
+    .work-item-link:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 4px;
+      border-radius: var(--radius-tag);
+    }
+
+    .work-item-link svg {
       width: 16px;
       height: 16px;
     }
@@ -1008,6 +1125,19 @@
         font-size: clamp(32px, 4vw, 44px);
       }
 
+      .works-intro {
+        grid-template-columns: 1fr auto;
+        gap: 32px;
+      }
+
+      .works-intro-image {
+        display: none;
+      }
+
+      .works-list {
+        gap: 40px;
+      }
+
       .about-container {
         gap: 50px;
       }
@@ -1111,9 +1241,24 @@
         font-size: clamp(36px, 5vw, 48px);
       }
 
-      .works-grid {
+      .works-intro {
         grid-template-columns: 1fr;
         gap: 32px;
+        margin-bottom: 64px;
+      }
+
+      .works-title,
+      .works-subtitle {
+        max-width: 100%;
+      }
+
+      .works-scroll {
+        display: none;
+      }
+
+      .works-list {
+        grid-template-columns: 1fr;
+        gap: 48px;
       }
 
       .about {
@@ -1199,10 +1344,8 @@
         padding: 60px 16px;
       }
 
-      .works-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 40px;
+      .works-list {
+        gap: 40px;
       }
 
       .section-header {
@@ -1240,11 +1383,8 @@
         opacity: 1;
         transform: none;
       }
-      .project-card, .project-image img, .testimonial-card, .btn {
+      .testimonial-card, .btn {
         transition: none;
-      }
-      .project-card:hover .project-image img {
-        transform: none;
       }
       .insight-image img { transform: none; }
     }
@@ -2255,53 +2395,66 @@
 
     <!-- works section -->
     <section class="works" id="works">
-      <div class="section-header">
-
-        <h2>Case Studies</h2>
+      <div class="works-intro">
+        <div class="works-intro-text">
+          <span class="works-eyebrow">Case Studies</span>
+          <h2 class="works-title">A selection of research-driven projects<span class="works-title-dot">.</span></h2>
+          <p class="works-subtitle">Each project is a deep dive into complex problems, uncertainty, and human behavior. Turning insights into direction.</p>
+        </div>
+        <div class="works-intro-image">
+          <img
+            src="images/case-study-2-radarchart.jpg"
+            alt="Developer portal maturity assessment radar chart"
+            loading="lazy"
+          />
+        </div>
+        <a href="#works-list" class="works-scroll" aria-label="Scroll to explore the case studies">
+          <span class="works-scroll-label">Scroll to explore</span>
+          <span class="works-scroll-line"></span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
       </div>
 
-      <div class="works-grid">
-        <!-- project card 1 -->
-        <a href="#case-study-1" class="project-card">
-          <div class="project-image">
-            <img
-              src="images/home-page-card1.jpg"
-              alt="The delivered developer portal landing page, headlined APIs for real-world energy."
-              loading="lazy"
-            />
+      <div class="works-list" id="works-list">
+        <!-- project 1 -->
+        <article class="work-item work-item-featured">
+          <div class="work-item-marker">
+            <span class="work-item-number">01</span>
+            <span class="work-item-divider" aria-hidden="true"></span>
+            <span class="work-item-featured-label">Featured project</span>
           </div>
-          <div class="project-content">
-            <h3>Sales Enablement</h3>
-            <p class="project-subtitle">Enterprise UX Research</p>
-            <div class="project-cta">
-              <span class="cta-text">View Case Study</span>
+          <div class="work-item-content">
+            <h3 class="work-item-title">Sales Enablement Platform Research</h3>
+            <p class="work-item-category">Enterprise UX Research</p>
+            <p class="work-item-description">End-to-end research to uncover friction, validate opportunities, and guide the evolution of a global sales enablement platform.</p>
+            <a href="#case-study-1" class="work-item-link">
+              View case study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </div>
+            </a>
           </div>
-        </a>
+        </article>
 
-        <!-- project card 2 -->
-        <a href="#case-study-2" class="project-card">
-          <div class="project-image">
-            <img
-              src="images/case-study-2-radarchart.jpg"
-              alt="Developer portal maturity assessment radar chart"
-              loading="lazy"
-            />
+        <!-- project 2 -->
+        <article class="work-item">
+          <div class="work-item-marker">
+            <span class="work-item-number">02</span>
           </div>
-          <div class="project-content">
-            <h3>Developer Experience Strategy</h3>
-            <p class="project-subtitle">Maturity Framework & Benchmarking</p>
-            <div class="project-cta">
-              <span class="cta-text">View Case Study</span>
+          <div class="work-item-content">
+            <h3 class="work-item-title">Developer Portal Maturity Assessment</h3>
+            <p class="work-item-category">Research &amp; Assessment Design</p>
+            <p class="work-item-description">A maturity framework to evaluate developer experience and identify strategic focus areas across the platform lifecycle.</p>
+            <a href="#case-study-2" class="work-item-link">
+              View case study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </div>
+            </a>
           </div>
-        </a>
+        </article>
       </div>
 
     <!-- Testimonials Section - Featured + Grid -->
