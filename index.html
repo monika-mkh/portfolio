@@ -2403,10 +2403,17 @@
 
     <style>
       .research-overview-image {
+        max-width: 50%;
         margin: 40px 0 48px;
         border-radius: var(--radius-card);
         overflow: hidden;
         border: 1px solid var(--border);
+      }
+
+      @media (max-width: 768px) {
+        .research-overview-image {
+          max-width: 100%;
+        }
       }
 
       .research-overview-image img {
@@ -2453,7 +2460,7 @@
       Research informed both the content strategy and the AI workflow — account managers described the customer challenge and selected the APIs used, AI generated a draft focused on business outcomes, and users refined it before publishing. The workflow reduced the effort of documenting success stories while keeping the language aligned with how customers understand value.
       </p>
 
-      <img src="images/case-study-1-solutiondesign.jpg" alt="Screens from the AI-assisted content workflow, from discovery and content generation to the final published sales enablement case study." style="width: 100%; max-width: 900px; margin: 16px auto 0; display: block; border-radius: var(--radius-card);">
+      <img src="images/case-study-1-final.jpg" alt="Screens from the AI-assisted content workflow, from discovery and content generation to the final published sales enablement case study." style="width: 100%; max-width: 900px; margin: 16px auto 0; display: block; border-radius: var(--radius-card);">
     </section>
 
     <!-- impact -->
