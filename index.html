@@ -896,84 +896,6 @@
       transition: color 0.3s ease;
     }
 
-    /* Grid for smaller supporting testimonials - NO BORDERS */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-top: 0;
-    }
-
-    .testimonial-card {
-      border: none;                           /* No border - just whitespace */
-      padding: 24px;
-      background: var(--surface);   /* Subtle white background */
-      border-radius: var(--radius-card);
-      margin: 0;
-      box-shadow: 0 1px 3px rgba(var(--ink-rgb), 0.05);  /* Subtle shadow only */
-      transition: none;
-      height: auto;                           /* Natural height */
-    }
-
-    .testimonial-card:hover {
-      box-shadow: 0 1px 3px rgba(var(--ink-rgb), 0.05);  /* No change on hover */
-      transform: none;
-    }
-
-    .testimonial-card:hover .quote-text {
-      color: var(--text-muted);               /* No color change */
-    }
-
-    .testimonial-card .quote-text {
-      font-size: 14px;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin: 0 0 24px 0;
-      transition: none;
-    }
-
-    .testimonial-card .quote-attribution {
-      margin-top: 24px;
-      border: none;                           /* No border */
-      padding-top: 0;
-    }
-
-    .testimonial-card .quote-author {
-      font-size: 13px;
-      font-weight: 600;                       /* Medium weight */
-      color: var(--text);
-      margin: 0 0 2px 0;
-    }
-
-    .testimonial-card .quote-role {
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .quote-attribution {
-      padding-top: 0;
-      border-top: none;
-      transition: none;
-    }
-
-    .quote-author {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      margin: 0 0 4px 0;
-      transition: none;
-    }
-
-    .quote-role {
-      font-size: 12px;
-      margin: 0;
-      color: var(--text-muted);
-    }
-
     /* CTA section */
     .cta-section {
       padding: 64px 48px;
@@ -1200,12 +1122,6 @@
         padding: 80px 24px;
       }
 
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        margin-top: 0;
-      }
-
       .testimonials-duo {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1292,10 +1208,6 @@
         margin-top: 40px;
       }
 
-      .testimonials-grid {
-        gap: 20px;
-      }
-
       .footer {
         padding: 40px 16px;
       }
@@ -1314,7 +1226,7 @@
         opacity: 1;
         transform: none;
       }
-      .testimonial-card, .btn {
+      .btn {
         transition: none;
       }
       .insight-image img { transform: none; }
@@ -1399,12 +1311,12 @@
 
     .cs-hero-tag {
       display: block;
-      font-size: 14px;
-      text-transform: capitalize;
-      letter-spacing: 0px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       font-weight: 600;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       transition: color 0.3s ease;
     }
 
@@ -1549,33 +1461,43 @@
       margin-bottom: 0;
     }
 
-    /* contribution list */
-    .contribution-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 32px;
-      padding: 0;
-    }
-
-    .contribution-list li {
-      background: var(--surface);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-tag);
-      padding: 24px;
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.6;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .contribution-list strong {
-      display: block;
+    .cs-body-emphasis {
       font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.6;
       color: var(--text);
-      font-size: 14px;
-      margin-bottom: 4px;
+    }
+
+    /* plain 3-column role summary (case study 1) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 56px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-strong);
+      transition: border-color 0.3s ease;
+    }
+
+    .role-col h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .role-col p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+      transition: color 0.3s ease;
+    }
+
+    @media (max-width: 1024px) {
+      .role-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
     }
 
     /* process timeline */
@@ -2012,55 +1934,6 @@
       transition: background-color 0.3s ease;
     }
 
-    /* more work grid */
-    .more-work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 32px;
-    }
-
-    .more-work-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 32px;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .more-work-card:hover {
-      border-color: var(--accent);
-    }
-
-    .more-work-card-content {
-      flex: 1;
-    }
-
-    .more-work-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      margin-top: 0;
-    }
-
-    .more-work-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .more-work-card svg {
-      width: 20px;
-      height: 20px;
-      color: var(--accent);
-      margin-left: 16px;
-      flex-shrink: 0;
-    }
-
     /* end-of-case-study CTA */
     .cs-end {
       text-align: center;
@@ -2129,9 +2002,7 @@
         margin-bottom: 40px;
       }
 
-      .contribution-list,
-      .impact-grid,
-      .more-work-grid {
+      .impact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2436,8 +2307,9 @@
     <!-- case study hero -->
     <section class="cs-hero" aria-labelledby="cs-title">
       <div class="cs-hero-inner">
+        <p class="cs-hero-tag">Enterprise UX Research</p>
         <h1 class="cs-title" id="cs-title">Making API products easier to explain</h1>
-        <p class="cs-hero-subtitle">Account managers already understood their clients. What they lacked was the confidence and language to connect technical capabilities to business value. A one-week discovery sprint uncovered what was really getting in the way.</p>
+        <p class="cs-hero-subtitle">Account managers already understood their clients. What they lacked was the confidence and language to connect technical capabilities to business value — a one-week discovery sprint uncovered what was really getting in the way.</p>
       </div>
     </section>
 
@@ -2445,7 +2317,7 @@
     <section class="cs-meta cs-meta-single-row" aria-label="Project details">
       <dl class="cs-meta-item">
         <dt>Timeline</dt>
-        <dd>1-week</dd>
+        <dd>1 week</dd>
       </dl>
       <dl class="cs-meta-item">
         <dt>Team</dt>
@@ -2464,21 +2336,21 @@
     <!-- my contribution -->
     <section class="cs-section" aria-labelledby="contribution-heading">
 
-      <h2 id="contribution-heading">My role</h2>
-      <ul class="contribution-list">
-        <li>
-          <strong>Defined the research approach</strong>
-          Designed a mixed-methods research plan that balanced speed with depth, enabling the team to make confident decisions within five days.
-        </li>
-        <li>
-          <strong>Built research capability across the team</strong>
-          Enabled designers to conduct interviews alongside me, increasing research capacity while ensuring the team heard customer perspectives firsthand.
-        </li>
-        <li>
-          <strong>Coached others</strong>
-          Mentored a designer through interview planning and facilitation, helping strengthen research skills within the team.
-        </li>
-      </ul>
+      <p class="cs-hero-tag" id="contribution-heading">My Role</p>
+      <div class="role-grid">
+        <div class="role-col">
+          <h3>Defined the research approach</h3>
+          <p>Designed a mixed-methods research plan that balanced speed with depth, enabling the team to make confident decisions within five days.</p>
+        </div>
+        <div class="role-col">
+          <h3>Built research capability across the team</h3>
+          <p>Trained designers to conduct interviews alongside me, increasing research capacity while ensuring the team heard customer perspectives firsthand.</p>
+        </div>
+        <div class="role-col">
+          <h3>Coached others</h3>
+          <p>Mentored a designer through interview planning and facilitation, helping strengthen research skills within the team.</p>
+        </div>
+      </div>
     </section>
 
     <!-- problem & discovery -->
@@ -2488,8 +2360,8 @@
         <p class="cs-body-text">
           The company had invested heavily in its API ecosystem, but these products rarely surfaced in customer conversations. While account managers excelled at understanding client needs, they often lacked the confidence and language to introduce technical solutions. API discussions typically happened only after customers asked for them, creating an ongoing dependence on a small group of technical specialists.
         </p>
-        <p class="cs-body-text">
-          <strong>The challenge wasn't explaining APIs—it was helping account managers confidently connect technical capabilities to business outcomes.</strong>
+        <p class="cs-body-text cs-body-emphasis">
+          The challenge wasn't explaining APIs — it was helping account managers confidently connect technical capabilities to business outcomes.
         </p>
     </section>
 
@@ -2497,179 +2369,79 @@
     <section class="cs-section" aria-labelledby="research-journey-heading">
 
       <h2 id="research-journey-heading">Turning research into a validated concept</h2>
-      <p class="cs-body-text">
-        <strong>This wasn't a polished 12-week research project.</strong> We had five days to understand the problem, shape a concept, and validate it with users. There was no time for formal reports—our research lived in a shared Miro board, evolving alongside design decisions. Here's how evidence became a validated prototype.
+      <p class="cs-body-text" style="max-width: 720px;">
+        This wasn't a polished twelve-week research project — we had five days to understand the problem, shape a concept, and validate it with users. Research lived in a shared Miro board, evolving alongside design decisions as evidence became a validated prototype.
       </p>
 
-      <div class="research-flow" style="margin-top: 48px;">
-        <!-- Phase 1: Capture -->
-        <div class="research-phase alternating-left">
-          <div class="research-image">
-            <img src="images/case-study-1-affinity.jpg" alt="Live affinity mapping from interview notes, organised by session stage and emerging themes." style="width: 100%; height: auto; display: block;" loading="lazy"/>
-          </div>
-          <div class="research-text">
-            <h3>Capture</h3>
-            <p class="cs-body-text" style="font-style: italic; margin-bottom: 12px;">
-              Organised emerging findings while research was still in progress.
-            </p>
-            <p class="cs-body-text">
-              Rather than waiting for transcripts, I clustered observations as interviews happened. Working directly from notes kept the team aligned around emerging themes and allowed design discussions to begin immediately.
-            </p>
-          </div>
-        </div>
-
-        <div class="research-divider"></div>
-
-        <!-- Phase 2: Synthesize -->
-        <!-- full-width: the two personas sit side by side, so a half-width
-             column would squeeze them to an unreadable size -->
-        <div class="research-phase full-width">
-          <div class="research-text">
-            <h3>Synthesize</h3>
-            <p class="cs-body-text" style="font-style: italic; margin-bottom: 12px;">
-              Identified two distinct user mindsets.
-            </p>
-            <p class="cs-body-text">
-              Interviews revealed two fundamentally different mental models. Relationship-focused account managers framed conversations around business outcomes, while systems-focused specialists thought in terms of technical integration. Designing for both required different language, content, and entry points.
-            </p>
-          </div>
-          <div class="research-image">
-            <img src="images/case-study-1-userinsights.jpg" alt="Two distinct user mindsets emerged from the interviews, each requiring different messaging around APIs." style="width: 100%; height: auto; display: block;" loading="lazy"/>
-          </div>
-        </div>
-
-        <div class="research-divider"></div>
-
-        <!-- Phase 3: Frame — full-width: the board is 2.4:1, so a
-             half-width column would flatten it into an unreadable strip -->
-        <div class="research-phase full-width">
-          <div class="research-text">
-            <h3>Frame</h3>
-            <p class="cs-body-text" style="font-style: italic; margin-bottom: 12px;">
-              Turned research into design opportunities.
-            </p>
-            <p class="cs-body-text">
-              The next morning, we translated our findings into "How Might We" questions. Prioritising these together helped the team move from observations to concrete design opportunities instead of jumping straight to solutions.
-            </p>
-          </div>
-          <div class="research-image">
-            <img
-              src="images/case-study-1-howmightwe.jpg"
-              alt="How-Might-We questions clustered into groups, then sorted against high-priority, mid-priority and low-priority markers. The framing goal reads: enable sales to explain the value and ROI of APIs, against problems of fear, lack of knowledge, lack of relevancy, lack of findability, and being too technical."
-              loading="lazy"
-              style="width: 100%; height: auto; display: block;"
-            />
-          </div>
-        </div>
-
-        <div class="research-divider"></div>
-
-        <!-- Phase 4: Validate -->
-        <div class="research-phase alternating-right">
-          <div class="research-text">
-            <h3>Validate</h3>
-            <p class="cs-body-text" style="font-style: italic; margin-bottom: 12px;">
-              Tested the concept before the sprint ended.
-            </p>
-            <p class="cs-body-text">
-              Everyone sketched concepts based on the research, creating a shared understanding of the problem before converging on a direction. Product and UX designers refined the strongest ideas while developers reviewed feasibility early to surface technical constraints.
-            </p>
-          </div>
-          <div class="research-image">
-            <img
-              src="images/case-study-1-solutiondesign.jpg"
-              alt="Sprint artefacts connecting research insights to wireframes, user flows, and the validated concept."
-              loading="lazy"
-              style="width: 100%; height: auto; display: block;"
-            />
-          </div>
-        </div>
+      <div class="research-overview-image">
+        <img src="images/case-study-1-affinity.jpg" alt="Live affinity mapping from interview notes, organised by session stage and emerging themes." loading="lazy"/>
       </div>
 
-      <p class="cs-body-text" style="margin-top: 32px;">
-        I then presented the research narrative to the client—connecting user evidence directly to the proposed solution and explaining the reasoning behind key design decisions. Once aligned, we mapped user flows and finished the week by validating the prototype with the same participants through five usability sessions.
-      </p>
+      <div class="rp-list">
+        <div class="rp-block">
+          <p class="cs-hero-tag" style="margin-bottom: 10px;">Capture</p>
+          <p class="rp-subtitle">Organised emerging findings while research was still in progress.</p>
+          <p class="rp-text">Rather than waiting for transcripts, I clustered observations as interviews happened — working directly from notes kept the team aligned around emerging themes.</p>
+        </div>
+        <div class="rp-block">
+          <p class="cs-hero-tag" style="margin-bottom: 10px;">Synthesize</p>
+          <p class="rp-subtitle">Identified two distinct user mindsets.</p>
+          <p class="rp-text">Interviews revealed two fundamentally different mental models — relationship-focused account managers framed conversations around business outcomes, while systems-focused specialists thought in terms of technical integration.</p>
+        </div>
+        <div class="rp-block">
+          <p class="cs-hero-tag" style="margin-bottom: 10px;">Frame</p>
+          <p class="rp-subtitle">Turned research into design opportunities.</p>
+          <p class="rp-text">We translated our findings into "How Might We" questions and prioritized them together, moving from observations to concrete design opportunities.</p>
+        </div>
+        <div class="rp-block">
+          <p class="cs-hero-tag" style="margin-bottom: 10px;">Validate</p>
+          <p class="rp-subtitle">Tested the concept before the sprint ended.</p>
+          <p class="rp-text">Everyone sketched concepts based on the research, converging on a shared direction — then we mapped user flows and validated the prototype with the same participants through five usability sessions.</p>
+        </div>
+      </div>
     </section>
 
     <style>
-      .research-flow {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .research-phase {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: center;
-        padding: 32px 0;
-      }
-
-      .research-phase.full-width {
-        grid-template-columns: 1fr;
-      }
-
-      .research-phase.alternating-left {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .research-phase.alternating-right {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .research-phase h3 {
-        font-size: 18px;
-        font-weight: 500;
-        color: var(--text);
-        margin-bottom: 16px;
-        letter-spacing: -0.3px;
-      }
-
-      .research-image {
+      .research-overview-image {
+        margin: 40px 0 48px;
         border-radius: var(--radius-card);
         overflow: hidden;
         border: 1px solid var(--border);
       }
 
-      .research-image img {
+      .research-overview-image img {
         display: block;
         width: 100%;
         height: auto;
       }
 
-      .research-divider {
-        height: 1px;
-        background: linear-gradient(to right, transparent, var(--border), transparent);
-        margin: 32px 0;
+      .rp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
       }
 
-      @media (max-width: 1024px) {
-        .research-phase {
-          grid-template-columns: 1fr;
-          gap: 32px;
-          padding: 40px 0;
-        }
-
-        .research-phase.alternating-left,
-        .research-phase.alternating-right {
-          grid-template-columns: 1fr;
-        }
+      .rp-block {
+        border-top: 1px solid var(--border-strong);
+        padding-top: 28px;
+        transition: border-color 0.3s ease;
       }
 
-      @media (max-width: 768px) {
-        .research-phase {
-          padding: 32px 0;
-          gap: 24px;
-        }
+      .rp-subtitle {
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-size: 19px;
+        color: var(--text);
+        margin-bottom: 14px;
+      }
 
-        .research-phase h3 {
-          font-size: 16px;
-        }
-
-        .research-divider {
-          margin: 24px 0;
-        }
+      .rp-text {
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--text-muted);
+        max-width: 640px;
+        margin: 0;
+        transition: color 0.3s ease;
       }
     </style>
 
@@ -2677,26 +2449,23 @@
     <section class="cs-section" aria-labelledby="solution-heading">
 
       <h2 id="solution-heading">Designing an AI-assisted content workflow</h2>
-      <p class="cs-body-text">
-      Research informed both the content strategy and the AI workflow. Instead of writing case studies from scratch, account managers described the customer challenge and selected the APIs used. AI then generated a draft focused on business outcomes, which users refined before publishing.
-      </p>
-      <p class="cs-body-text">
-      The workflow reduced the effort of documenting success stories while keeping the language aligned with how customers understood value.
+      <p class="cs-body-text" style="max-width: 720px;">
+      Research informed both the content strategy and the AI workflow — account managers described the customer challenge and selected the APIs used, AI generated a draft focused on business outcomes, and users refined it before publishing. The workflow reduced the effort of documenting success stories while keeping the language aligned with how customers understand value.
       </p>
 
-      <img src="images/case-study-1-final.jpg" alt="Five screens from the developer portal showing the AI-assisted workflow for creating customer success stories, from discovery and content generation to published case studies." style="width: 100%; max-width: 900px; margin: 48px auto; display: block; border-radius: var(--radius-card);">
+      <img src="images/case-study-1-solutiondesign.jpg" alt="Screens from the AI-assisted content workflow, from discovery and content generation to the final published sales enablement case study." style="width: 100%; max-width: 900px; margin: 16px auto 0; display: block; border-radius: var(--radius-card);">
     </section>
 
     <!-- impact -->
     <section class="cs-section" aria-labelledby="impact-heading">
 
         <h2 id="impact-heading">Research impact</h2>
-        <div class="impact-grid">
-          <div class="impact-card">
+        <div class="impact-plain-grid">
+          <div class="impact-plain-card">
             <h3>We reframed the problem</h3>
-            <p>The research showed the real barrier wasn't technical knowledge—it was confidence. Instead of creating more training materials, we shifted towards giving account managers reviewed, customer-ready content they could confidently use in conversations.</p>
-            <div class="impact-stats" style="justify-content: center;">
-            <div class="impact-stat">
+            <p>The research showed the real barrier wasn't technical knowledge — it was confidence. Instead of training materials, we shifted towards giving account managers relevant, customer-ready content they could confidently use in conversations.</p>
+            <div class="impact-stats">
+              <div class="impact-stat">
                 <strong>16</strong>
                 <span>Survey responses</span>
               </div>
@@ -2710,84 +2479,95 @@
               </div>
             </div>
           </div>
-          <div class="impact-card">
+          <div class="impact-plain-card">
             <h3>The research shaped the solution</h3>
-            <p>The findings directly informed:</p>
-            <ul>
-              <li>the AI-assisted sales enablement workflow</li>
-              <li>the structure of solution-oriented case studies</li>
-              <li>the content creation process</li>
-            </ul>
-            <p>Together, these created a repeatable way to translate technical capabilities into business language. The content strategy and AI workflow were validated with users before development began.</p>
+            <p>The findings directly informed the AI-assisted sales enablement workflow, the structure of solution-oriented case studies, and the content creation process — together creating a repeatable way to translate technical capabilities into business language, validated with users before development began.</p>
           </div>
         </div>
     </section>
 
-    <!-- reflection -->
-    <section class="cs-section" aria-labelledby="reflection-heading">
+    <style>
+      .impact-plain-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        margin-top: 32px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border-strong);
+        transition: border-color 0.3s ease;
+      }
 
-      <h2 id="reflection-heading">Key takeaway</h2>
-      <p class="cs-body-text">
-        We started by assuming the barrier was knowledge. Research showed it was confidence.
-      </p>
-      <p class="cs-body-text">
-        Confidence didn't come from understanding every technical detail—it came from having visibility into the content, the ability to review it, and trust that what reached customers was accurate and relevant.
-      </p>
-    </section>
+      .impact-plain-card h3 {
+        font-size: 19px;
+        margin-bottom: 14px;
+      }
+
+      .impact-plain-card > p {
+        font-size: 15px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0 0 32px;
+        transition: color 0.3s ease;
+      }
+
+      .impact-plain-card .impact-stats {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        padding: 0;
+        border: none;
+      }
+
+      @media (max-width: 900px) {
+        .impact-plain-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+    </style>
+
     <section class="cs-section" aria-labelledby="cs-reviews-heading">
 
       <h2 id="cs-reviews-heading">What people said</h2>
-      <div class="testimonials-grid">
-        <blockquote class="testimonial-card">
-          <p class="quote-text">
-            "Last week I started watching the interview recordings. They are super interesting!"
-          </p>
-          <div class="quote-attribution">
-            <p class="quote-author">Product Owner (client)</p>
-            <p class="quote-role">Global Energy Enterprise</p>
-          </div>
-        </blockquote>
-
-        <blockquote class="testimonial-card">
-          <p class="quote-text">
-            "I think it's good that we are engaging. I appreciate the effort to bring all this information
-            together into one place."
-          </p>
-          <div class="quote-attribution">
-            <p class="quote-author">Account Manager (participant)</p>
-            <p class="quote-role">Global Energy Enterprise</p>
-          </div>
-        </blockquote>
-
-        <blockquote class="testimonial-card">
-          <p class="quote-text">
-            "A highlight of our time together was collaborating on a fast-paced design sprint &mdash; Móni kept the entire team grounded and focused. She is empathetic, highly collaborative, and her versatile personality and precision is a valuable asset to any team."
-          </p>
-          <div class="quote-attribution">
-            <p class="quote-author">Product Designer</p>
-            <p class="quote-role">Pronovix (team)</p>
-          </div>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- more work -->
-    <section class="cs-section" aria-labelledby="more-work-heading">
-
-      <h2 id="more-work-heading">Explore other case studies</h2>
-      <div class="more-work-grid">
-        <a href="#case-study-2" class="more-work-card">
-          <div class="more-work-card-content">
-
-            <h3>Making portal maturity measurable</h3>
-            <p>Enterprise clients had invested heavily in developer portals but had no way to know if it was working — or what to build next.</p>
-          </div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+      <div class="testimonials-duo">
+        <blockquote class="testimonial-duo-item">
+          <svg class="testimonial-duo-mark" viewBox="0 0 100 76" aria-hidden="true">
+            <path d="M0 76 C0 40 12 12 40 0 L46 10 C28 20 20 34 20 46 C33 46 42 55 42 66 C42 74 34 76 26 76 C10 76 0 68 0 76 Z M58 76 C58 40 70 12 98 0 L104 10 C86 20 78 34 78 46 C91 46 100 55 100 66 C100 74 92 76 84 76 C68 76 58 68 58 76 Z"/>
           </svg>
-        </a>
+          <p class="testimonial-duo-text">"Last week I started watching the interview recordings. They are super interesting!"</p>
+          <div class="testimonial-duo-author">Product Owner</div>
+          <div class="testimonial-duo-role">Energy Enterprise Client</div>
+        </blockquote>
+
+        <blockquote class="testimonial-duo-item">
+          <svg class="testimonial-duo-mark" viewBox="0 0 100 76" aria-hidden="true">
+            <path d="M0 76 C0 40 12 12 40 0 L46 10 C28 20 20 34 20 46 C33 46 42 55 42 66 C42 74 34 76 26 76 C10 76 0 68 0 76 Z M58 76 C58 40 70 12 98 0 L104 10 C86 20 78 34 78 46 C91 46 100 55 100 66 C100 74 92 76 84 76 C68 76 58 68 58 76 Z"/>
+          </svg>
+          <p class="testimonial-duo-text">"I think it's good that we are engaging. I appreciate the effort to bring all this information together into one place."</p>
+          <div class="testimonial-duo-author">Senior Account Manager</div>
+          <div class="testimonial-duo-role">Energy Enterprise Client</div>
+        </blockquote>
       </div>
+
+      <blockquote class="testimonial-duo-item testimonial-duo-extra">
+        <svg class="testimonial-duo-mark" viewBox="0 0 100 76" aria-hidden="true">
+          <path d="M0 76 C0 40 12 12 40 0 L46 10 C28 20 20 34 20 46 C33 46 42 55 42 66 C42 74 34 76 26 76 C10 76 0 68 0 76 Z M58 76 C58 40 70 12 98 0 L104 10 C86 20 78 34 78 46 C91 46 100 55 100 66 C100 74 92 76 84 76 C68 76 58 68 58 76 Z"/>
+        </svg>
+        <p class="testimonial-duo-text">"What sets Mónika apart is her thoughtful approach to research — she asks the right questions, designs rigorous studies, and communicates findings clearly to both technical and non-technical stakeholders."</p>
+        <div class="testimonial-duo-author">Product Designer</div>
+        <div class="testimonial-duo-role">Pronovix Team</div>
+      </blockquote>
     </section>
+
+    <style>
+      .testimonial-duo-extra {
+        border-top: 1px solid var(--border-strong);
+        padding-top: 40px;
+        margin-top: 64px;
+        max-width: 720px;
+        transition: border-color 0.3s ease;
+      }
+    </style>
 
     <!-- end of case study CTA -->
     <section class="cs-section cs-end" aria-labelledby="cs-end-heading">
