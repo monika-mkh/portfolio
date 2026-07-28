@@ -783,32 +783,18 @@
 
     .work-row-image {
       aspect-ratio: 3 / 2;
-      border: 1px dashed var(--border-strong);
+      border: 1px solid var(--border);
       border-radius: var(--radius-tag);
       background: var(--surface-sunken);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 24px;
-      text-align: center;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
     }
 
-    .work-row-image-icon {
-      width: 28px;
-      height: 28px;
-      color: var(--text-muted);
-      opacity: 0.6;
-    }
-
-    .work-row-image-caption {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      max-width: 220px;
-      transition: color 0.3s ease;
+    .work-row-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* about section */
@@ -2349,13 +2335,12 @@
                 </svg>
               </a>
             </div>
-            <div class="work-row-image" role="img" aria-label="Placeholder for a photo of the sales enablement research notebook">
-              <svg class="work-row-image-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="M21 15l-5-5L5 21"/>
-              </svg>
-              <span class="work-row-image-caption">Drop a photo of the sales enablement research notebook</span>
+            <div class="work-row-image">
+              <img
+                src="images/home-page-card1.jpg"
+                alt="The delivered developer portal landing page, headlined APIs for real-world energy."
+                loading="lazy"
+              />
             </div>
           </article>
 
@@ -2373,13 +2358,12 @@
                 </svg>
               </a>
             </div>
-            <div class="work-row-image" role="img" aria-label="Placeholder for a photo of the developer portal maturity radar sketch">
-              <svg class="work-row-image-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="M21 15l-5-5L5 21"/>
-              </svg>
-              <span class="work-row-image-caption">Drop a photo of the developer portal maturity radar sketch</span>
+            <div class="work-row-image">
+              <img
+                src="images/case-study-2-radarchart.jpg"
+                alt="Developer portal maturity assessment radar chart"
+                loading="lazy"
+              />
             </div>
           </article>
         </div>
